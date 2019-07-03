@@ -36,9 +36,9 @@ public class MediaSwara extends AppCompatActivity {
 
         cardStackView.setLayoutManager(cardStackLayoutManager);
 
-        ArrayList<CardDetail> cardDetails = new ArrayList<CardDetail>();
+        ArrayList<CardDetail> cardDetails = DataUtils.getArticles();
 
-        int[] arr = {1,2,3};
+
         cardStackView.setAdapter(new NewsCardAdapter(cardDetails));
 
     }

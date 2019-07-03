@@ -13,7 +13,7 @@
         tools:replace="android:appComponentFactory"
         android:appComponentFactory="whateverString">
         <activity android:name=".MediaSwara"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Dashboard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

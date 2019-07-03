@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,8 +46,14 @@ public class NewsCardAdapter extends RecyclerView.Adapter<NewsCardAdapter.CardHo
 
     @Override
     public void onBindViewHolder(@NonNull CardHolderView holder, int position) {
-        TextView textView = holder.newsCardView.findViewById(R.id.cardTextView);
-        textView.setText(String.valueOf(position));
+        ImageView cardImageView = holder.newsCardView.findViewById(R.id.cardImageTextView);
+        TextView articleHeadingTextView = holder.newsCardView.findViewById(R.id.cardHeadingTextView);
+        TextView articleTextView = holder.newsCardView.findViewById(R.id.cardArticleTextView);
+
+        CardDetail card = mCardDetailArrayList.get(position);
+        cardImageView.setImageResource(card.getImgRscId());
+        articleHeadingTextView.setText(card.getArticleHeading());
+        articleTextView.setText(card.getArticle());
 
     }
 
