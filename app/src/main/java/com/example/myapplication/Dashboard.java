@@ -39,6 +39,10 @@ public class Dashboard extends AppCompatActivity implements TextToSpeech.OnInitL
     private TextToSpeech mTts;
     private int mSelectedVoice;
 
+    public static Dashboard getDashboard() {
+        return dashboard_activity;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +54,20 @@ public class Dashboard extends AppCompatActivity implements TextToSpeech.OnInitL
         requestPermissions(permissions, WRITE_REQUEST_CODE);
 
         CardView mediaSwaraCardView = findViewById(R.id.mediaSwaraCardView);
+        CardView typeinGondiCardView = findViewById(R.id.typeInGondiCard);
+
         mediaSwaraCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MediaSwara.class);
+                startActivity(intent);
+            }
+        });
+
+        typeinGondiCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TypeGondi.class);
                 startActivity(intent);
             }
         });
@@ -104,6 +118,7 @@ public class Dashboard extends AppCompatActivity implements TextToSpeech.OnInitL
         super.onStart();
         if (mTts != null)
             mTts.shutdown();
+            initVoices();
     }
     public void stopSpeaking() {
         mTts.stop();

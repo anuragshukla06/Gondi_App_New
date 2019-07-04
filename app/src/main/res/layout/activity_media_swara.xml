@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MediaSwara">
-    <com.yuyakaido.android.cardstackview.CardStackView
-        android:id="@+id/cardStackView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.yuyakaido.android.cardstackview.CardStackView>
+        <com.yuyakaido.android.cardstackview.CardStackView
+            android:id="@+id/cardStackView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+        </com.yuyakaido.android.cardstackview.CardStackView>
+
+    </LinearLayout>
 </RelativeLayout>

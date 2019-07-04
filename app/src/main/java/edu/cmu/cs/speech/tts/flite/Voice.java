@@ -179,6 +179,7 @@ public class Voice {
 		else {
 			Log.e(LOG_TAG,"Voice file found, but MD5 sum incorrect. Found" +
 					sb.toString() + ". Expected: " + mVoiceMD5);
+			mIsVoiceAvailable = true;
 			return;
 		}
 	}

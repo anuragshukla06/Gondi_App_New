@@ -100,7 +100,7 @@ public class CheckVoiceData extends Activity {
 		 * if we don't already have a file.
 		 */
 
-		if(!Utility.pathExists(VOICE_LIST_FILE)&& true) {
+		if(!Utility.pathExists(VOICE_LIST_FILE)) {
 			Log.e(LOG_TAG, "Voice list file doesn't exist. Try getting it from server.");
 
 			DownloadVoiceList(null);

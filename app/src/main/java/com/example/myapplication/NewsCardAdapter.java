@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Context;
+import android.speech.tts.TextToSpeech;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NewsCardAdapter extends RecyclerView.Adapter<NewsCardAdapter.CardHolderView> {
 
     ArrayList<CardDetail> mCardDetailArrayList;
+    Dashboard dashboard_activity = Dashboard.getDashboard();
 
     public NewsCardAdapter(ArrayList<CardDetail> cardDetailArrayList) {
         mCardDetailArrayList = cardDetailArrayList;
@@ -50,10 +52,17 @@ public class NewsCardAdapter extends RecyclerView.Adapter<NewsCardAdapter.CardHo
         TextView articleHeadingTextView = holder.newsCardView.findViewById(R.id.cardHeadingTextView);
         TextView articleTextView = holder.newsCardView.findViewById(R.id.cardArticleTextView);
 
-        CardDetail card = mCardDetailArrayList.get(position);
+        final CardDetail card = mCardDetailArrayList.get(position);
         cardImageView.setImageResource(card.getImgRscId());
         articleHeadingTextView.setText(card.getArticleHeading());
         articleTextView.setText(card.getArticle());
+
+        holder.newsCardView.findViewById(R.id.readButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dashboard_activity.sayText(card.getArticle(), TextToSpeech.QUEUE_FLUSH);
+            }
+        });
 
     }
 
